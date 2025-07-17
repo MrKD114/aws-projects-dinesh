@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Serverless Feedback App</h1>
+
+    <form id="feedback-form">
+      <input type="text" id="name" placeholder="Your name" required />
+      <textarea id="message" placeholder="Your feedback" required></textarea>
+      <button type="submit">Submit Feedback</button>
+    </form>
+
+    <button id="refresh">🔄 Load All Feedback</button>
+
+    <div id="feedback-list"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
