@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create DynamoDB Table with EmployeeID and EmployeeName
+
+Resources:
+  MyDynamoTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: MyEmployeeTable
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: EmployeeID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: EmployeeID
+          KeyType: HASH
+Outputs:
+  TableName:
+    Description: Name of the DynamoDB table
+    Value: !Ref MyDynamoTable

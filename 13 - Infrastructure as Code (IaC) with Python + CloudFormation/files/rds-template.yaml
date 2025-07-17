@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create RDS MySQL DB Instance
+
+Resources:
+  MyDBInstance:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBName: mydatabase
+      Engine: mysql
+      MasterUsername: admin
+      MasterUserPassword: MySecurePass123! 
+      DBInstanceClass: db.t3.micro
+      AllocatedStorage: 20
+      PubliclyAccessible: true
+      BackupRetentionPeriod: 0
+      VPCSecurityGroups:
+        - !GetAtt DBSecurityGroup.GroupId
+
+  DBSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allow RDS access
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 0.0.0.0/0
+
+Outputs:
+  DBEndpoint:
+    Description: Endpoint of RDS instance
+    Value: !GetAtt MyDBInstance.Endpoint.Address
