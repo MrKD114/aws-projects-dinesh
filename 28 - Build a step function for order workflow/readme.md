@@ -1,4 +1,4 @@
-# UC-26: Order Workflow using AWS Step Functions
+#Order Workflow using AWS Step Functions
 
 This project demonstrates how to build a **Step Function-based Order Workflow** using AWS Lambda and Step Functions. It helps in understanding how state machines can orchestrate multiple services in a serverless environment.
 
